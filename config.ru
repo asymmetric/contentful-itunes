@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
 require 'sidekiq'
 
 Sidekiq.configure_server do |config|
