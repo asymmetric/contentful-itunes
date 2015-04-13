@@ -1,7 +1,4 @@
 module StoresInfo
-  def initialize
-  end
-
   def fields
     original_fields = super.fields
     play_store_info = original_fields[:gpUniversalId].blank ? {} : get_play_store_info(item[:contentful_fields][:gpUniversalId])
