@@ -8,7 +8,7 @@ class App
 
   def fields
     {
-      contentful_fields: fields
+      contentful_fields: @fields
     }
   end
 end
