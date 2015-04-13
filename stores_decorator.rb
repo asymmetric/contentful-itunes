@@ -1,4 +1,4 @@
-module StoresInfo
+module StoresDecorator
   def fields
     original_fields = super
 

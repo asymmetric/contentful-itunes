@@ -20,7 +20,7 @@ class AppList
 
     app = App.new(fields, @settings)
 
-    app = app.extend(StoresInfo) if stores_info
+    app = app.extend(StoresDecorator) if stores_info
 
     app.fields
   end
