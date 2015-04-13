@@ -1,6 +1,6 @@
 module StoresInfo
   def fields
-    original_fields = super.fields
+    original_fields = super
 
     our_fields = {
       app_store_info:  AppStoreInfo.fetch(original_fields, settings[:country_code]),
