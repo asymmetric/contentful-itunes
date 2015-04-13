@@ -18,7 +18,7 @@ class AppList
   def get(app_id, stores_info = true)
     fields = @contentful.entries.find(app_id).fields
 
-    app = App.new(fields)
+    app = App.new(fields, @settings)
 
     app = app.extend(StoresInfo) if stores_info
 

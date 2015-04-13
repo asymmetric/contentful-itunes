@@ -1,6 +1,9 @@
 class App
-  def initialize(fields)
+  attr_reader :settings
+
+  def initialize(fields, settings)
     @fields = fields
+    @settings = settings
   end
 
   def fields
