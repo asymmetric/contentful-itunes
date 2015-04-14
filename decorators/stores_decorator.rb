@@ -1,6 +1,6 @@
 module StoresDecorator
   def fields
-    original_fields = super
+    original_fields = super[:contentful_fields]
 
     our_fields = {
       app_store_info:  AppStoreInfo.fetch(original_fields, settings[:country_code]),
