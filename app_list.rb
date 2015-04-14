@@ -6,21 +6,21 @@ class AppList
     @contentful = Contentful::Management::Space.find(settings[:space])
   end
 
-  def all(stores_info = true)
-    @contentful.entries.all.map { |app| get(app.sys[:id], stores_info) }
+  def all
+    @contentful.entries.all.map { |app| get(app.sys[:id]) }
   end
 
-  def teasers(stores_info = true)
-    @contentful.entries.all.map { |app| teaser(app.sys[:id], stores_info) }
+  def teasers
+    @contentful.entries.all.map { |app| get(app.sys[:id]) }
   end
 
   private
-  def get(app_id, stores_info = true)
+  def get(app_id)
     fields = @contentful.entries.find(app_id).fields
 
     app = App.new(fields, @settings)
 
-    app = app.extend(StoresDecorator) if stores_info
+    app = app.extend(StoresDecorator)
 
     app.fields
   end
