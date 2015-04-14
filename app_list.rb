@@ -3,6 +3,8 @@ Dir["decorators/*.rb"].each { |file| require_relative file }
 Dir["presenters/*.rb"].each { |file| require_relative file }
 
 class AppList
+  APPS_TYPE = 'content-type-id'
+
   def initialize(settings)
     @settings = settings
     Contentful::Management::Client.new(settings[:access_token])
@@ -11,11 +13,15 @@ class AppList
   end
 
   def all
-    @contentful.entries.all.map { |app| get(app.sys[:id]) }
+    @contentful.entries.all(content_type: APPS_TYPE).map do |app|
+      get(app.sys[:id])
+    end
   end
 
   def teasers
-    @contentful.entries.all.map { |app| get(app.sys[:id], :as_teasers) }
+    @contentful.entries.all(content_type: APPS_TYPE).map do |app|
+      get(app.sys[:id], :as_teasers)
+    end
   end
 
   private
@@ -29,5 +35,4 @@ class AppList
 
     app.fields
   end
-
 end
