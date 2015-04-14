@@ -1,3 +1,7 @@
+require_relative 'app'
+Dir["decorators/*.rb"].each { |file| require_relative file }
+Dir["presenters/*.rb"].each { |file| require_relative file }
+
 class AppList
   def initialize(settings)
     @settings = settings
