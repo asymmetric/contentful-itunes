@@ -11,17 +11,19 @@ class AppList
   end
 
   def teasers
-    @contentful.entries.all.map { |app| get(app.sys[:id]) }
+    @contentful.entries.all.map { |app| get(app.sys[:id], :as_teasers) }
   end
 
   private
-  def get(app_id)
+  def get(app_id, teasers = false)
     fields = @contentful.entries.find(app_id).fields
 
     app = App.new(fields, @settings)
 
     app = app.extend(StoresDecorator)
+    app = app.extend(TeaserDecorator) if teasers
 
     app.fields
   end
+
 end
