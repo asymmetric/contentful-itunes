@@ -31,8 +31,7 @@ class AppList
 
     app = App.new(fields, @settings)
 
-    app = app.extend(StoresDecorator)
-    app = app.extend(TeaserDecorator) if teasers
+    app = app.extend(ItunesStoreDecorator)
 
     app.fields
   end
