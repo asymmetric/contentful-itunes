@@ -25,14 +25,8 @@ class AppList
     ContentfulPresenter.build(@data)
   end
 
-  def teasers
-    @contentful.entries.all(content_type: APPS_TYPE).map do |app|
-      get(app.sys[:id], :as_teasers)
-    end
-  end
-
   private
-  def get(app_id, teasers = false)
+  def get(app_id)
     fields = @contentful.entries.find(app_id).fields
 
     app = App.new(fields, @settings)
