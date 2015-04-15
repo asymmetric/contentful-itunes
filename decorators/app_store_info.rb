@@ -1,6 +1,7 @@
 class AppStoreInfo
   include HTTParty
   base_uri 'http://itunes.apple.com'
+  format :json
 
   def self.fetch(fields, country_code)
     ios_info = {}

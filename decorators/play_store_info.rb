@@ -1,6 +1,7 @@
 class PlayStoreInfo
   include HTTParty
   base_uri 'http://api.playstoreapi.com/v1.1/apps'
+  format :json
 
   def self.fetch(fields, token, country_code)
     if id = fields[:gpUniversalId]
