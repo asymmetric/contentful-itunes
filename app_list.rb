@@ -10,12 +10,10 @@ class AppList
     Contentful::Management::Client.new(settings[:access_token])
 
     @contentful = Contentful::Management::Space.find(settings[:space])
-
-    @pulled_data = {}
   end
 
   def pull
-    @pulled_data =
+    @data =
       @contentful.
         entries.
         all(content_type: APPS_TYPE).
