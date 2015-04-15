@@ -14,7 +14,7 @@ class AppList
     @pulled_data = {}
   end
 
-  def all
+  def pull
     @pulled_data =
       @contentful.
         entries.
