@@ -21,6 +21,8 @@ class AppList
         map do |app|
           get(app.sys[:id])
         end
+
+    ContentfulPresenter.build(@data)
   end
 
   def teasers
