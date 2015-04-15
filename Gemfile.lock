@@ -13,6 +13,7 @@ GEM
     contentful-management (0.6.1)
       http (~> 0.6)
       multi_json (~> 1)
+    diff-lcs (1.2.5)
     hitimes (1.2.2)
     http (0.8.3)
       addressable (~> 2.3)
@@ -40,6 +41,19 @@ GEM
     redis (3.2.1)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
     sidekiq (3.3.3)
       celluloid (>= 0.16.0)
       connection_pool (>= 2.1.1)
@@ -66,6 +80,7 @@ DEPENDENCIES
   pry
   pry-byebug
   rack
+  rspec
   sidekiq
   sinatra
   whenever
