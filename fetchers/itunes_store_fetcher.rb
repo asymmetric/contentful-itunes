@@ -1,9 +1,9 @@
-class AppStoreInfo
+class ItunesStoreFetcher
   include HTTParty
   base_uri 'http://itunes.apple.com'
   format :json
 
-  def self.fetch(fields, country_code)
+  def self.run(fields, country_code)
     ios_info = {}
 
     [:iOsUniversalId, :iOsPhoneId, :iOsTabletId].each do |item_name|
