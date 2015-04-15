@@ -14,20 +14,17 @@ class AppList
   end
 
   def pull
-    @data =
+    @entries =
       @contentful.
         entries.
-        all(content_type: APPS_TYPE).
-        map do |app|
-          get(app.sys[:id])
-        end
+        all(content_type: APPS_TYPE)
 
     ContentfulPresenter.build(@data)
   end
 
   private
   def get(app_id)
-    fields = @contentful.entries.find(app_id).fields
+    fields = @entries.find { |app| app.sys[:id] = app_id }.fields
 
     app = App.new(fields, @settings)
 
