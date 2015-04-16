@@ -14,21 +14,19 @@ class AppList
   end
 
   def pull
-    @entries =
+    contentful_entries =
       @contentful.
         entries.
         all(content_type: apps_type)
 
-    ContentfulPresenter.build(@data)
+    @data = contentful_entries.map { |app| get(app) }
   end
 
   private
-  def get(app_id)
-    fields = @entries.find { |app| app.sys[:id] = app_id }.fields
+  def get(app)
+    app = App.new(app.fields, @settings)
 
-    app = App.new(fields, @settings)
-
-    app = app.extend(ItunesStoreDecorator)
+    app.extend(ItunesStoreDecorator)
 
     app.fields
   end
