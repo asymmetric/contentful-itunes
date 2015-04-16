@@ -17,7 +17,7 @@ class AppList
     @entries =
       @contentful.
         entries.
-        all(content_type: APPS_TYPE)
+        all(content_type: apps_type)
 
     ContentfulPresenter.build(@data)
   end
@@ -31,5 +31,9 @@ class AppList
     app = app.extend(ItunesStoreDecorator)
 
     app.fields
+  end
+
+  def apps_type
+    @settings[:apps_type] || APPS_TYPE
   end
 end
