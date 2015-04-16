@@ -13,8 +13,8 @@ class ItunesStoreFetcher
 
         result = get("/#{country_code}/lookup", query: { id: app_store_id })
 
-        if result['resultCount'].to_i > 0 
-          ios_info[item_slug] = result['results'][0] 
+        if result['resultCount'].to_i > 0
+          ios_info[item_slug] = result['results'][0]
         end
       end
     end
