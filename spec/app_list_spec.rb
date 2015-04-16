@@ -7,6 +7,7 @@ RSpec.describe AppList do
     settings = {
       access_token: "access-token",
       space: "space-id",
+      apps_type: 'content-type-id',
       country_code: "de"
     }
 
