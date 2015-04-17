@@ -19,11 +19,14 @@ class AppList
         entries.
         all(content_type: apps_type)
 
-    @data = contentful_entries.map { |app| get(app) }
+    @data = contentful_entries.map do |entry|
+      entry.locale = @settings[:locale]
+      get_stores_data(entry)
+    end
   end
 
   private
-  def get(contentful_entry)
+  def get_stores_data(contentful_entry)
     app = App.new(contentful_entry, @settings)
 
     app.extend(ItunesStoreDecorator)
