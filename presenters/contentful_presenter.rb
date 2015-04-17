@@ -29,4 +29,10 @@ class ContentfulPresenter
 
     { phone: phone, tablet: tablet }
   end
+
+  def self.extract_description(fields)
+    hash = fields["universal"] || fields["tablet"] || fields["phone"]
+
+    hash["description"]
+  end
 end
