@@ -13,7 +13,7 @@ class ContentfulPresenter
         galleryPhone:    image_urls[:phone]
       })
     else
-      contentful_fields
+      nil
     end
 
   end

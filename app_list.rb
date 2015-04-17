@@ -30,7 +30,9 @@ class AppList
       contentful_entry = @contentful.entries.find(app_fields[:contentful_id])
       contentful_entry.locale = @settings[:locale]
 
-      contentful_entry.update ContentfulPresenter.build(app_fields)
+      presenter = ContentfulPresenter.build(app_fields)
+
+      contentful_entry.update(presenter) if presenter
     end
   end
 
