@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem "rack"
-gem "sinatra"
+# required for sidekiq's web interface
+gem "sinatra", require: false
 gem "sidekiq"
 gem "whenever", require: false
 
