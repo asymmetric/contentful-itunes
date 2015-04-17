@@ -15,14 +15,14 @@ class ContentfulPresenter
   def self.extract_image_urls(fields)
     phone = tablet = {}
 
-    if (fields["universal"])
+    if fields["universal"]
       phone = fields["universal"]["screenshotUrls"]
       tablet = fields["universal"]["ipadScreenshotUrls"]
     else
-      if (fields["tablet"])
+      if fields["tablet"]
         tablet = fields["tablet"]["ipadScreenshotUrls"]
       end
-      if (fields["phone"])
+      if fields["phone"]
         phone = fields["phone"]["screenshotUrls"]
       end
     end
