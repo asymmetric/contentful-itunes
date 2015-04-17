@@ -34,6 +34,11 @@ class AppList
     end
   end
 
+  def sync
+    pull
+    push
+  end
+
   private
   def get_stores_data(contentful_entry)
     app = App.new(contentful_entry, @settings)
