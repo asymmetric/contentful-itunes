@@ -25,6 +25,15 @@ class AppList
     end
   end
 
+  def push
+    @data.each do |app_fields|
+      contentful_entry = @contentful.entries.find(app_fields[:contentful_id])
+      contentful_entry.locale = @settings[:locale]
+
+      contentful_entry.update ContentfulPresenter.build(app_fields)
+    end
+  end
+
   private
   def get_stores_data(contentful_entry)
     app = App.new(contentful_entry, @settings)
