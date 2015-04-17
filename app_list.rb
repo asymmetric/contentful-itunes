@@ -23,8 +23,8 @@ class AppList
   end
 
   private
-  def get(app)
-    app = App.new(app.fields, @settings)
+  def get(contentful_entry)
+    app = App.new(contentful_entry, @settings)
 
     app.extend(ItunesStoreDecorator)
 
