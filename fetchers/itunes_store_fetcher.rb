@@ -3,13 +3,15 @@ class ItunesStoreFetcher
   base_uri 'http://itunes.apple.com'
   format :json
 
+  DEFAULT_CONTENTFUL_LOCALE = "en-US"
+
   def self.run(fields, locale)
     ios_info = {}
     country_code = parse_country_code(locale)
 
     [:iOsUniversalId, :iOsPhoneId, :iOsTabletId].each do |item_name|
       if (fields[item_name])
-        app_store_id = fields[item_name]
+        app_store_id = fields[item_name][DEFAULT_CONTENTFUL_LOCALE]
         item_slug = item_name[3..-3].downcase
 
         result = get("/#{country_code}/lookup", query: { id: app_store_id })
