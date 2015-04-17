@@ -3,8 +3,9 @@ class ItunesStoreFetcher
   base_uri 'http://itunes.apple.com'
   format :json
 
-  def self.run(fields, country_code)
+  def self.run(fields, locale)
     ios_info = {}
+    country_code = parse_country_code(locale)
 
     [:iOsUniversalId, :iOsPhoneId, :iOsTabletId].each do |item_name|
       if (fields[item_name])
@@ -20,5 +21,10 @@ class ItunesStoreFetcher
     end
 
     ios_info
+  end
+
+  private
+  def self.parse_country_code(locale)
+    locale.split('-').last.downcase
   end
 end

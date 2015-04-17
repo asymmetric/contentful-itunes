@@ -8,7 +8,7 @@ RSpec.describe AppList do
       access_token: "access-token",
       space: "space-id",
       apps_type: 'content-type-id',
-      country_code: "de"
+      locale: "de-DE"
     }
 
     @app_list = AppList.new settings
