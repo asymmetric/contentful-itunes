@@ -1,3 +1,5 @@
+require_relative '../config/sidekiq'
+
 class SyncWorker
   include Sidekiq::Worker
 
