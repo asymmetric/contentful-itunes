@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 job_type :sidekiq_job,
-  "cd :path && :environment_variable=:environment bundle exec ./sidekiq_pusher.rb :task :output"
+  "cd :path && :environment_variable=:environment bundle exec ./config/sidekiq/pusher.rb :task :output"
 
 every 1.day, at: '03:00 am' do
   sidekiq_job 'Worker.perform_async'
