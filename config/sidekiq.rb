@@ -1,4 +1,4 @@
-Bundler.require
+Bundler.require :default
 
 require_relative '../sidekiq/sync_worker'
 require_relative '../app_list'
