@@ -9,7 +9,7 @@ class ItunesStoreFetcher
     ios_info = {}
     country_code = parse_country_code(locale)
 
-    [:iOsUniversalId, :iOsPhoneId, :iOsTabletId].each do |item_name|
+    [:iOsUniversalId, :iOsTabletId, :iOsPhoneId ].each do |item_name|
       if (fields[item_name])
         app_store_id = fields[item_name][DEFAULT_CONTENTFUL_LOCALE]
         item_slug = item_name[3..-3].downcase
