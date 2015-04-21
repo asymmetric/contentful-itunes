@@ -3,16 +3,15 @@ class App
   attr_reader :contentful_id
 
   def initialize(contentful_entry, settings)
-    @fields = contentful_entry.fields
-    @all_fields = contentful_entry.fields_for_query
-    @contentful_id = contentful_entry.sys[:id]
+    @contentful_entry = contentful_entry
+    @all_fields = @contentful_entry.fields_for_query
     @settings = settings
   end
 
   def fields
     {
-      contentful_id: @contentful_id,
-      contentful_fields: @fields
+      contentful_id: @contentful_entry.sys[:id],
+      contentful_fields: @contentful_entry.fields
     }
   end
 
