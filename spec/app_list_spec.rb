@@ -30,4 +30,11 @@ RSpec.describe AppList do
 
     it { is_expected.not_to be_empty }
   end
+
+  describe "#push" do
+    before { @app_list.pull }
+    subject { @app_list.push }
+
+    it { is_expected.to be true }
+  end
 end
