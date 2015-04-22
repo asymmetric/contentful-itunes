@@ -26,10 +26,8 @@ RSpec.describe AppList do
   describe "#pull" do
     subject { @app_list.pull }
 
-    it { is_expected.not_to be_nil }
+    it { is_expected.to be_an Array }
 
-    it "fetches itunes store data" do
-      expect(subject).to include(:play_store_info)
-    end
+    it { is_expected.not_to be_empty }
   end
 end
