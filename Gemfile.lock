@@ -2,6 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+    airbrake (4.1.0)
+      builder
+      multi_json
+    builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
     celluloid (0.16.0)
@@ -78,6 +82,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   contentful-management
   foreman
   httparty

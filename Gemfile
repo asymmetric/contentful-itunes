@@ -9,6 +9,8 @@ gem "whenever", require: false
 gem 'contentful-management'
 gem 'httparty'
 
+gem 'airbrake'
+
 group :development do
   gem 'pry'
   gem 'pry-byebug'
