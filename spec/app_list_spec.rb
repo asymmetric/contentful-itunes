@@ -14,6 +14,15 @@ RSpec.describe AppList do
     @app_list = AppList.new settings
   end
 
+  describe "#sync" do
+    subject { @app_list }
+
+    before { subject.sync }
+
+    it { is_expected.to receive(:pull) }
+    it { is_expected.to receive(:push) }
+  end
+
   describe "#pull" do
     subject { @app_list.pull }
 
