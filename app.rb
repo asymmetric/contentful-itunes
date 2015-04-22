@@ -4,7 +4,6 @@ class App
 
   def initialize(contentful_entry, settings)
     @contentful_entry = contentful_entry
-    @all_fields = @contentful_entry.fields_for_query
     @settings = settings
   end
 
@@ -19,6 +18,6 @@ class App
   # TODO this is a workaround for a problem in contentful: if the entry is
   # localized, we only get the localized fields, not the unlocalized ones
   def all_fields
-    @all_fields
+    @all_fields ||= @contentful_entry.fields_for_query
   end
 end
