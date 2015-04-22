@@ -19,10 +19,13 @@ class AppList
         entries.
         all(content_type: apps_type)
 
-    @data = contentful_entries.map do |entry|
-      entry.locale = @settings[:locale]
-      get_stores_data(entry)
-    end
+    @data =
+      contentful_entries.
+        reject(&:archived?).
+        map do |entry|
+          entry.locale = @settings[:locale]
+          get_stores_data(entry)
+        end
   end
 
   def push
