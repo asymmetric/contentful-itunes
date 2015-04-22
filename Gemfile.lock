@@ -1,7 +1,16 @@
+GIT
+  remote: git://github.com/airbrake/airbrake.git
+  revision: b192f3dcff54f135c3702b8b10ad7384844139e9
+  specs:
+    airbrake (4.1.0)
+      builder
+      multi_json
+
 GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+    builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
     celluloid (0.16.0)
@@ -78,6 +87,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake!
   contentful-management
   foreman
   httparty
