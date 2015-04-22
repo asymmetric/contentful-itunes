@@ -12,12 +12,12 @@ class ItunesStoreFetcher
     [:iOsUniversalId, :iOsTabletId, :iOsPhoneId ].each do |item_name|
       if (fields[item_name])
         app_store_id = fields[item_name][DEFAULT_CONTENTFUL_LOCALE]
-        item_slug = item_name[3..-3].downcase
+        device_type = item_name[3..-3].downcase
 
         result = get("/#{country_code}/lookup", query: { id: app_store_id })
 
         if result['resultCount'].to_i > 0
-          ios_info[item_slug] = result['results'][0]
+          ios_info[device_type] = result['results'][0]
         end
       end
     end
