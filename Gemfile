@@ -9,7 +9,7 @@ gem "whenever", require: false
 gem 'contentful-management'
 gem 'httparty'
 
-gem 'airbrake'
+gem 'airbrake', github: 'airbrake/airbrake'
 
 group :development do
   gem 'pry'
