@@ -15,12 +15,12 @@ RSpec.describe AppList do
   end
 
   describe "#sync" do
-    subject { @app_list }
+    it "calls #pull and #push" do
+      expect(@app_list).to receive(:pull)
+      expect(@app_list).to receive(:push)
 
-    before { subject.sync }
-
-    it { is_expected.to receive(:pull) }
-    it { is_expected.to receive(:push) }
+      @app_list.sync
+    end
   end
 
   describe "#pull" do
