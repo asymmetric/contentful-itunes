@@ -21,7 +21,7 @@ class AppList
 
     @data =
       contentful_entries.
-        reject(&:archived?).
+        select(&:published?).
         map do |entry|
           entry.locale = @settings[:locale]
           get_stores_data(entry)
