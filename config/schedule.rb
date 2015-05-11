@@ -23,5 +23,5 @@ job_type :sidekiq_job,
   "cd :path && :environment_variable=:environment bundle exec ./config/sidekiq/pusher.rb :task :output"
 
 every 1.day, at: '03:00 am' do
-  sidekiq_job 'SynchWorker.perform_async'
+  sidekiq_job 'SyncWorker.perform_async'
 end
