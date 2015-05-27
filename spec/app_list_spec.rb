@@ -1,5 +1,5 @@
 Bundler.require :default, :development
-Dotenv.load "../.env.development", "../.env"
+Dotenv.load ".env.development", ".env"
 
 require_relative '../app_list'
 
