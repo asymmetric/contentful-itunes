@@ -1,4 +1,6 @@
-Bundler.require :default, ENV['APP_ENV'] || 'development'
+environment = ENV['APP_ENV'] || 'development'
+Bundler.require :default, environment
+Dotenv.load "../.env.#{environment}", "../.env"
 
 require_relative 'airbrake'
 require_relative '../sidekiq/sync_worker'
