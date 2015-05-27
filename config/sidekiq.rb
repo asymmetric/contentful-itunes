@@ -1,4 +1,4 @@
-Bundler.require :default
+Bundler.require :default, ENV['APP_ENV'] || 'development'
 
 require_relative 'airbrake'
 require_relative '../sidekiq/sync_worker'

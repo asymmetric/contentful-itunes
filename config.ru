@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
 
-Bundler.require :default
+Bundler.require :default, ENV['APP_ENV'] || 'development'
 
 require 'sidekiq'
 
