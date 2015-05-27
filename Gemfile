@@ -12,7 +12,6 @@ gem 'httparty'
 gem 'airbrake', github: 'airbrake/airbrake'
 
 group :development do
-  gem 'pry'
   gem 'pry-byebug'
   gem "foreman"
   gem 'rspec'

@@ -91,7 +91,6 @@ DEPENDENCIES
   contentful-management
   foreman
   httparty
-  pry
   pry-byebug
   rack
   rspec
