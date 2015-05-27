@@ -8,6 +8,7 @@ gem "whenever", require: false
 
 gem 'contentful-management'
 gem 'httparty'
+gem 'dotenv'
 
 gem 'airbrake', github: 'airbrake/airbrake'
 
