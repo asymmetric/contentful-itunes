@@ -4,9 +4,9 @@ class SyncWorker
   include Sidekiq::Worker
 
   SETTINGS = {
-    access_token: "access-token",
-    space: "space-id",
-    apps_type: "content-type-id"
+    access_token: ENV['CONTENTFUL_ACCESS_TOKEN'],
+    space: ENV['CONTENTFUL_SPACE_ID'],
+    apps_type: ENV['CONTENTFUL_APPS_TYPE']
   }
 
   LOCALES = %w/

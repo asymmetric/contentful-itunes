@@ -4,8 +4,6 @@ Dir["fetchers/*.rb"].each { |file| require_relative file }
 Dir["presenters/*.rb"].each { |file| require_relative file }
 
 class AppList
-  APPS_TYPE = 'content-type-id'
-
   def initialize(settings)
     @settings = settings
     Contentful::Management::Client.new(settings[:access_token])
@@ -54,6 +52,6 @@ class AppList
   end
 
   def apps_type
-    @settings[:apps_type] || APPS_TYPE
+    @settings[:apps_type] || ENV['CONTENTFUL_APPS_TYPE']
   end
 end

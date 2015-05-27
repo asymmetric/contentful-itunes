@@ -1,13 +1,14 @@
 Bundler.require :default, :development
+Dotenv.load ".env.development", ".env"
 
 require_relative '../app_list'
 
 RSpec.describe AppList do
   before do
     settings = {
-      access_token: "access-token",
-      space: "space-id",
-      apps_type: 'content-type-id',
+      access_token: ENV['CONTENTFUL_ACCESS_TOKEN'],
+      space: ENV['CONTENTFUL_SPACE_ID'],
+      apps_type: ENV['CONTENTFUL_APPS_TYPE'],
       locale: "de-DE"
     }
 
