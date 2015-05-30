@@ -23,6 +23,16 @@ Then:
 * Alternatively, use whenever to set up a cron job that does it for you (hint: look at the `config/schedule.rb` file)
 * Or you can also run the only existing test, which is right now being (ab)used as a hacky way of performing a job.
 
-The main action happens in the `app_list.rb` file, so look there if you're curious how things work.
+Code Structure
+--------------
+
+This project makes heavy use of the [Decorator][deco] and [Presenter][pres]
+patterns. Take a look at the relative directories for examples on how to
+implement each.
+
+The main action happens in the `AppList` class, so look there if you're
+curious how things work.
 
 [dotenv]: https://github.com/bkeepers/dotenv
+[deco]: https://en.wikipedia.org/wiki/Decorator_pattern
+[pres]: https://eewang.github.io/blog/2013/09/26/presenting-the-rails-presenter-pattern/
