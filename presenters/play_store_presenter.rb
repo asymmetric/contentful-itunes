@@ -1,3 +1,5 @@
+require_relative 'presenter'
+
 class PlayStorePresenter
   include Presenter
 
